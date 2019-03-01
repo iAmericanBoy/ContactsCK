@@ -14,6 +14,8 @@
 		B6EC77E622298F2300D9C061 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EC77E522298F2300D9C061 /* CloudKit.framework */; };
 		B6EC77E822298FF500D9C061 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC77E722298FF500D9C061 /* Contact.swift */; };
 		B6EC77EB2229935800D9C061 /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC77EA2229935800D9C061 /* ContactController.swift */; };
+		B6EC77EF22299F2C00D9C061 /* ContactListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC77EE22299F2C00D9C061 /* ContactListTableViewController.swift */; };
+		B6EC77F122299F5D00D9C061 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC77F022299F5D00D9C061 /* ContactDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		B6EC77E522298F2300D9C061 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B6EC77E722298FF500D9C061 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B6EC77EA2229935800D9C061 /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
+		B6EC77EE22299F2C00D9C061 /* ContactListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewController.swift; sourceTree = "<group>"; };
+		B6EC77F022299F5D00D9C061 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +113,18 @@
 			isa = PBXGroup;
 			children = (
 				B6EC77EC2229935C00D9C061 /* Model Controller */,
+				B6EC77F222299FBE00D9C061 /* View Controller */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B6EC77F222299FBE00D9C061 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC77EE22299F2C00D9C061 /* ContactListTableViewController.swift */,
+				B6EC77F022299F5D00D9C061 /* ContactDetailViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EC77E822298FF500D9C061 /* Contact.swift in Sources */,
+				B6EC77F122299F5D00D9C061 /* ContactDetailViewController.swift in Sources */,
 				B6EC77D122298EA000D9C061 /* AppDelegate.swift in Sources */,
+				B6EC77EF22299F2C00D9C061 /* ContactListTableViewController.swift in Sources */,
 				B6EC77EB2229935800D9C061 /* ContactController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
