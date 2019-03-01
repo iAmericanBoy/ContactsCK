@@ -12,6 +12,13 @@ class ContactListTableViewController: UITableViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        ContactController.shared.fetchContacts { (fetchIsSuccess) in
+            if fetchIsSuccess {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

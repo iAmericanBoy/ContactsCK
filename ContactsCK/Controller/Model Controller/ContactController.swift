@@ -57,6 +57,7 @@ class ContactController {
                     return
                 }
                 self.contacts += contacts
+                completion(true)
             }
         }
     }
