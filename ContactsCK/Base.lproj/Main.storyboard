@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact List Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="Fgo-JL-kp5">
             <objects>
                 <tableViewController id="MW1-56-sqt" customClass="ContactListTableViewController" customModule="ContactsCK" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="MW1-56-sqt" id="NmJ-24-Ojk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="L4i-5m-B1o">
+                    <navigationItem key="navigationItem" title="Contacts" largeTitleDisplayMode="always" id="L4i-5m-B1o">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qNN-aT-I8C">
                             <connections>
                                 <segue destination="eqm-9N-NeO" kind="show" identifier="toNewVC" id="Ou7-uj-nTB"/>
@@ -131,8 +131,17 @@
                         <viewLayoutGuide key="safeArea" id="ZJw-17-gcx"/>
                     </view>
                     <navigationItem key="navigationItem" title="new Contact" id="WaM-IU-Qb0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ea5-UY-urz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ea5-UY-urz">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="eqm-9N-NeO" id="g0Y-Go-Aqp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="Ujg-Jd-Ajk" id="tv6-aC-Pqj"/>
+                        <outlet property="nameTextField" destination="6Wo-AN-WVT" id="0as-Wd-JRL"/>
+                        <outlet property="phoneTextField" destination="nrs-gK-S7r" id="eu7-eV-sbh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0C-Cp-y5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
