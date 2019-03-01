@@ -33,12 +33,22 @@ class ContactDetailViewController: UIViewController {
         
         if let contact = contact {
             //update contact
-            ContactController.shared.update(contact: contact, withName: name, andPhoneNumber: phone, andEmail: email)
-            self.navigationController?.popViewController(animated: true)
+            ContactController.shared.update(contact: contact, withName: name, andPhoneNumber: phone, andEmail: email) { (updateWasSuccess) in
+                if updateWasSuccess {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         } else {
             //save new Conatact
-            ContactController.shared.createContact(withName: name, andEmail: email, andPhoneNumber: phone)
-            self.navigationController?.popViewController(animated: true)
+            ContactController.shared.createContact(withName: name, andEmail: email, andPhoneNumber: phone) { (creationWasSuccess) in
+                if creationWasSuccess {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         }
     }
     

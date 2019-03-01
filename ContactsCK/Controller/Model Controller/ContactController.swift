@@ -20,7 +20,7 @@ class ContactController {
     var contacts: [Contact] = []
     
     //MARK: - CRUD
-    /// Creates Contact.
+    /// Creates new Contact.
     /// - parameter name: The name of the new contact (requird)
     /// - parameter email: The email of the new contact
     /// - parameter phoneNumber: The phone number of the new contact

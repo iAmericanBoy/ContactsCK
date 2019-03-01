@@ -35,8 +35,13 @@ class ContactListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let contactToDelete = ContactController.shared.contacts[indexPath.row]
-            ContactController.shared.delete(contact: contactToDelete)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            ContactController.shared.delete(contact: contactToDelete) { (deleteWasSuccess) in
+                if deleteWasSuccess {
+                    DispatchQueue.main.async {
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+            }
         }
     }
 
