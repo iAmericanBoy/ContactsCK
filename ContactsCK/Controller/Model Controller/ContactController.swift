@@ -48,9 +48,17 @@ class ContactController {
         }
     }
     
-    /// Read Contacts
+    /// Fetches the contacts and updates the source of Truth
     func fetchContacts(completion: @escaping(Bool) -> Void) {
-        
+        fetchRecordsFromCK { (isSuccess, records) in
+            if isSuccess {
+                guard let contacts = records?.compactMap({ Contact(record: $0) }) else {
+                    completion(false)
+                    return
+                }
+                self.contacts += contacts
+            }
+        }
     }
     
     /// Updates the contact if the contact exists in the source of truth.
@@ -125,5 +133,23 @@ class ContactController {
             
         }
         privateDB.add(operation)
+    }
+    
+    /// Update and Deletes changes to CloudKit.
+    /// - parameter completion: Handler for the feched Records.
+    /// - parameter isSuccess: Confirms that records where able to be fetched.
+    /// - parameter fetchedRecords: The fetched Records (can be nil).
+    fileprivate func fetchRecordsFromCK(completion: @escaping(_ isSuccess: Bool,_ fetchedRecords:[CKRecord]?)-> Void ) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: ContactMS.typeKey, predicate: predicate)
+        privateDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("An Error fetching record from Ck has occured: \(error), \(error.localizedDescription)")
+                completion(false, records)
+                return
+            }
+            guard let fetchedRecords = records else {completion(false,records); return}
+            completion(true,fetchedRecords)
+        }
     }
 }
