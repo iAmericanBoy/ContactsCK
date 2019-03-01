@@ -53,7 +53,7 @@ extension Contact: Equatable {
 }
 
 extension CKRecord {
-    convenience init(contact: Contact) {
+    convenience init?(contact: Contact) {
         self.init(recordType: ContactMS.typeKey, recordID: contact.recordID)
         
         setValue(contact.name, forKey: ContactMS.nameKey)
